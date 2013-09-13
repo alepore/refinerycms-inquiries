@@ -55,6 +55,8 @@ if defined?(::Refinery::Page)
   end
 end
 
+Rails.cache.clear
+
 (Refinery::Inquiries::Setting.methods.sort - ActiveRecord::Base.methods).each do |setting|
   Refinery::Inquiries::Setting.send(setting) unless setting.to_s =~ /=$/
 end
